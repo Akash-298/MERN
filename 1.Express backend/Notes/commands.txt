@@ -1,0 +1,4 @@
+npm init -y ----- this initializes the folder and creates package.json 
+
+
+node index.js----------Command to run, any JS file like index.js is 
