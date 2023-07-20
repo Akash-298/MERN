@@ -1,0 +1,29 @@
+#container{
+    margin: auto;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid black 2px;
+    flex-direction: column;
+    background-color: bisque;
+    margin-bottom: 400px ;
+}
+
+.item-description {
+  padding: 5px;
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.item-completed:checked + .item-description {
+  background-color: #dddd;
+  text-decoration: line-through;
+}
+
+#add {
+  padding: 8px 14px;
+  font-weight: bold;
+  color: #ffffff;
+  background: #009578;
+}
