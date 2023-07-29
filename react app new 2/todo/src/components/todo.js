@@ -1,10 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 const Todo = () => {
       const[inputdata,setInputData] =useState("");
-      const[items,setItems] = useState([]);
+      const[items,setItems] = useState(getLocalData());
 
-
+      // adding local storage
+const getLocalData=()=>{
+  const lists = localStorage.getItem("todolist")
+  if(lists){ return JSON.parse(lists)}
+   else{
+    return [];
+   }
+}
+      useEffect(()=>{
+        localStorage.setItem("todolist",JSON.stringify(items))
+      },[items])
       const addItem = () =>{
         if(!inputdata){
           alert("please fill data")
