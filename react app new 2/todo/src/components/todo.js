@@ -18,9 +18,16 @@ const Todo = () => {
         }
       }
                   // delete item section
-
-      //  const           
-
+        const deleteItem=(index)=>{
+          const updatedItens = items.filter((currElem)=>{
+            return currElem != index;
+          })
+          setItems(updatedItens);
+        //  const           
+        }
+        const removeAll=()=>{
+          setItems([]);
+        }
   return (
     <div className="main-div">
       <div className="child-div">
@@ -60,7 +67,7 @@ const Todo = () => {
          
         </div>
         <div className="showItems">
-          <button className="btn effect04">Remove all</button>
+          <button className="btn effect04" onClick={removeAll}>Remove all</button>
         </div>
       </div>
     </div>
