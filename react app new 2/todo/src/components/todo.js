@@ -9,9 +9,18 @@ const Todo = () => {
         if(!inputdata){
           alert("please fill data")
         }else{
-          setItems([...items,inputdata])
+          const myNewInputData={
+            id:new Date().getTime().toString(),
+            name:inputdata
+          }
+          setItems([...items,myNewInputData])
+          setInputData("")
         }
       }
+                  // delete item section
+
+      //  const           
+
   return (
     <div className="main-div">
       <div className="child-div">
@@ -32,15 +41,17 @@ const Todo = () => {
         </div>
         <div className="showItems">
           {
-            items.map((currElem,index) => {
+            items.map((currElem) => {
                 return(
-                  <div className="eachItem">
-                  <h3>{currElem}</h3>
+                  <div className="eachItem" key={currElem.id}>
+                  <h3>{currElem.name}</h3>
                   <div className="todo-btn">
                     <i class="far fa-edit add-btn"> </i>
                     {/* <i class="fa fa-minus" aria-hidden="true"></i> */}
                     {/* <i class="fa fa-trash" aria-hidden="true"></i> */}
-                    <i class="fa fa-ban" aria-hidden="true"></i>
+                    <i class="fa fa-ban" aria-hidden="true" onClick={()=>
+                            deleteItem(currElem.id)
+                    }></i>
                   </div>
                 </div>
                 )
