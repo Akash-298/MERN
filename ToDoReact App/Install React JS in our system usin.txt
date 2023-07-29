@@ -1,0 +1,6 @@
+Install React JS in our system using " npx create-react-app app_name "
+
+Go to the main directory by typing cd app_name
+
+How to run the React Project 🤔 Oooo It's simple
+just write the npm or yarn start command
