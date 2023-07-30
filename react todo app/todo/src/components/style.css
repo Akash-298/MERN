@@ -13,7 +13,7 @@ html {
 
 .main-div {
   min-height: 100vh;
-  background: #060822;
+  background: #b286b3;
   display: flex;
   justify-content: center;
   /* align-items: center; */
@@ -96,9 +96,9 @@ input:focus {
   transition: color 0.15s linear;
   font-size: 2rem;
 }
-.fa:hover {
+/* .fa:hover {
   color: rgb(47, 214, 122);
-}
+} */
 
 .fa-plus:before {
   content: "\f067";
@@ -118,7 +118,7 @@ input:focus {
   margin-left: 1rem;
   min-width: 40rem;
   word-break: break-word;
-  background: rgb(85, 41, 220);
+  background: rgb(138, 90, 130);
   display: flex;
   /* flex-direction: column; */
   justify-content: space-between;
@@ -128,7 +128,7 @@ input:focus {
 
 .eachItem:hover {
   background: rgb(249, 249, 252);
-  color: rgb(85, 41, 220);
+  color:rgb(138, 90, 130);
 }
 
 .showItems .eachItem h3 {
@@ -169,7 +169,8 @@ input:focus {
 }
 
 .eachItem:hover h3 {
-  color: rgb(85, 41, 220);
+  color:rgb(138, 90, 130);
+
 }
 
 .btn {
@@ -207,7 +208,8 @@ input:focus {
 }
 
 .effect04:hover {
-  background-color: rgb(85, 41, 220);
+  background-color:rgb(138, 90, 130);
+
 }
 
 .effect04:hover span {
