@@ -13,15 +13,33 @@ const getLocalData = () => {
 const Todo = () => {
   const [inputdata, setInputData] = useState("");
   const [items, setItems] = useState(getLocalData());
-
+  const[isEditItem,setIsEditItem]=useState("");
+  const[toggleButton,setToggleButton]=useState(false);
   // adding local storage
 
   useEffect(() => {
     localStorage.setItem("todolist", JSON.stringify(items));
   }, [items]);
+
+
+  // Adding items 
+
   const addItem = () => {
     if (!inputdata) {
       alert("please fill data");
+    }
+    else if(inputdata && toggleButton){
+        setItems(
+          items.map((currElem)=>{
+            if(currElem.id===isEditItem){
+              return{...currElem,name:inputdata};
+            }
+            return currElem;
+          })
+        )
+        setInputData([])
+        setIsEditItem(null);
+        setToggleButton(false)
     } else {
       const myNewInputData = {
         id: new Date().getTime().toString(),
@@ -35,8 +53,11 @@ const Todo = () => {
 
 const editItem=(index)=>{
         const item_todo_edited = items.find((currElem)=>{
-          return 
+          return currElem.id ==index;
         })
+        setInputData(item_todo_edited.name)
+        setIsEditItem(index);
+        setToggleButton(true)
 }
 
   // delete item section
@@ -70,7 +91,12 @@ const editItem=(index)=>{
             value={inputdata}
             onChange={(event) => setInputData(event.target.value)}
           ></input>
-          <i class="fa fa-plus" aria-hidden="true" onClick={addItem}></i>
+          {toggleButton ? (
+            <i className="far fa-edit add-btn"  aria-hidden="true" onClick={addItem}></i>
+          ):
+          (<i className="fa fa-plus add-btn" aria-hidden="true" onClick={addItem}></i>)
+          } 
+         
         </div>
         <div className="showItems">
           {items.map((currElem) => {
